@@ -15,36 +15,28 @@ you can compare the performance of thousands of bindings against angular-transla
 
 [ui-i18n 14K rows of bindings](http://jsfiddle.net/mc66U/5/)
 
-setup:
-```javascript
-var uiI18n = angular.module('ui.i18n');
-// adding english here, the array specifies all the matchable languages for the strings.
-uiI18n.add(["en", "en-us"],{
-    groupPanel:{
-        description:'Drag a column header here and drop it to group by that column.'
-    },
-    example: "I speak English"
-});
-uiI18n.add("de",{
-    groupPanel:{
-        description:'Ziehen Sie eine Spaltenüberschrift hierhin um nach dieser Spalte zu gruppieren.'
-    },
-    example: "I speak Something Else"
-});
-```
-NOTE: you can lazy load strings and it will extend the current set of strings with the new ones
-
+# setup:
 ```javascript
 //inject via the provider in a config block or service in anything else.
 .config(function(i18nServiceProvider, i18nService /*this is the same as i18nServiceProvider.api*/) {
   i18nServiceProvider.api.add(["en", "en-us"],{
-        groupPanel: {
-            otherText: 'some other group property text'
-        },
-        anotherExample: "I speak A Different Language"
-    });
+    groupPanel: {
+      otherText: 'some other group property text'
+    },
+    anotherExample: "I speak A Different Language"
+  });
+  i18nServiceProvider.api.add("de",{
+    groupPanel:{
+        description:'Ziehen Sie eine Spaltenüberschrift hierhin um nach dieser Spalte zu gruppieren.'
+    },
+    example: "I speak Something Else"
+  });
 }
 
+```
+NOTE: you can lazy load strings and it will extend the current set of strings with the new ones
+
+```javascript
 var uiI18n = angular.module('ui.i18n');
 
 //calling this later:
