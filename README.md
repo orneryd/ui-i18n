@@ -6,6 +6,8 @@ bower install angular-ui-i18n --save
 ```
 Then include the angular-ui-i18n.min.js file in your project
 
+original post: https://github.com/angular-ui/ui-utils/pull/173
+
 # Description
 due to the verbose nature of a couple of the i18n libraries out there and working on ng-grid 3.0 and wanting a lightweight version of i18n support I created a module that seems to be fairly lightweight and performant.
 
