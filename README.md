@@ -35,7 +35,18 @@ uiI18n.add("de",{
 NOTE: you can lazy load strings and it will extend the current set of strings with the new ones
 
 ```javascript
+//inject via the provider in a config block or service in anything else.
+.config(function(i18nServiceProvider, i18nService /*this is the same as i18nServiceProvider.api*/) {
+  i18nServiceProvider.api.add(["en", "en-us"],{
+        groupPanel: {
+            otherText: 'some other group property text'
+        },
+        anotherExample: "I speak A Different Language"
+    });
+}
+
 var uiI18n = angular.module('ui.i18n');
+
 //calling this later:
 uiI18n.add(["en", "en-us"],{
     groupPanel: {
@@ -113,6 +124,3 @@ Caveat, this does impact performance a little bit.. even using this syntax its s
 it will alert you to missing translations with "[MISSING]: invalid.path" in place of where the translations should be.
 
 All feedback is greatly appreciated.
-
-here is a plunk for your enjoyment:
-[ui-i18n plunk](http://plnkr.co/LrWPGJ?p=preview)
